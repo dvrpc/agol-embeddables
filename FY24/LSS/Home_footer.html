@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .accordion{
+    width: 100%;
+    font-size: 1.125rem;
+    font-family: 'Avenir', Helvetica, sans-serif;
+    line-height: 1.75rem;
+    padding: 1rem;
+    padding-right: 3.5rem;
+    text-align: left;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-width: 0px;
+    margin: 0px;
+    color:rgba(255,255,255,1);
+    background-color: #7d7d7d;
+  }
+
+  .active, .accordion:hover {
+    background-color: rgba(226, 203, 187, 1);
+  }
+
+.accordion::after {
+    content: "\002B";
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    float: right;
+    margin-left: 5px;
+    color:rgba(140,84,34,1);
+  }
+
+.active::after {
+    content:"\2212";
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    color:rgba(255,255,255,1);
+  }
+
+.panel {
+    font-family: font-family: 'Avenir', Helvetica, sans-serif;
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color:rgba(140,84,34,1);
+  background-color: #F2F2F2;
+}
+</style>
+</head>
+<body>
+<button class="accordion"> Resources</button>
+<div class="panel" style="display:block;">
+Coming Soon....
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
